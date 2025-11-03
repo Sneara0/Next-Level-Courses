@@ -14,19 +14,24 @@ const subtotal= cartItems.reduce((subtotal,product)=>{
 //console.log(subtotal)
 
 //find best scorer
-const players=[
-    {name:"Jamal Bhuyan",score:50},
-    {name:"Sheikh Mursalin",score:80},
-    {name:"Rakib Hossain",score:65},
-
+const students=[
+    {id:1,name:'Alice',score:85},
+    {id:2,name:'Bob',score:92},
+    {id:3,name:'Charlie',score:88},
 ];
-
-const bestplayer=players.reduce((bestplayer,player)=>{
-    console.log(bestplayer,player);
-    if (bestplayer.score>player.score){
-        return bestplayer;
+const bestStudent=students.reduce((bestStudent,students)=>{
+    console.log(bestStudent,students);
+    if
+    (bestStudent.score > students.score ? bestStudent : students){
+        return bestStudent;
+        {
+            return students;
+        }
     }
-    return player;
 
-},players[0]);
-console.log(bestplayer);
+    
+
+    
+
+},students[0]);
+console.log(bestStudent);
