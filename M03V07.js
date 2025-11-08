@@ -65,25 +65,59 @@ class LinkedList{
         }
         //if the insert is in the middle
         // find leading node
+     const leadingNode= this._traverseToIndex(index-1);
+     const holdingNode=leadingNode.next
 
-        let count=0;
-        let leadingNode= this.head;
+     const newNode =new node(value);
+     leadingNode.next=newNode;
+     newNode.next=holdingNode;
+     this.length++;
 
-        while ( count !== index-1){
-            leadingNode=leadingNode.next
-            count++
-        }
-
-        console.log(leadingNode)
-
+      
         
     }
 
 
-    remove(){
+    remove(index){
+        if(index===0){
+            const removeItem= this.head.value
+            this.head=this.head.next;
+
+
+            if (this.length ===1){
+                this.tail=null
+            }
+
+            this.length--;
+            return removeItem
+
+        }
+
+
+
+
+        const leadingNode= this._traverseToIndex(index-1);
+        const nodeToRemove= leadingNode.next
+        leadingNode.next=nodeToRemove.next
+
+        leadingNode.next=nodeToRemove.next
 
     }
+    _traverseToIndex(index){
+        let count=0;
+        let currentNode=this.head;
+
+        while (count!==index){
+
+            currentNode= currentNode.next;
+            count++;
+        }
+        return currentNode
+        
+      }
     
+
+      
     print(){
         const arr=[]
         let currentNode= this.head;
@@ -102,11 +136,11 @@ class LinkedList{
 }
 
 const List = new LinkedList ();
-List.appened(1);
-List.appened(2);
-List.appened(3);
-List.prepend(30);
-List.prepend(20);
-List.prepend(10);
-List.insert(2,100);
+List.appened("A");
+List.appened("B");
+List.appened("C");
+List.appened("D");
+
+List.print()
+List.remove(2)
 List.print()
